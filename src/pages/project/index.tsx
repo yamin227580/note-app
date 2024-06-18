@@ -158,7 +158,7 @@ const ProjectPage = () => {
                   <TableHead>
                     <TableRow>
                       <StyledTableCell sx={{ fontSize: { xs: 10, sm: 12 } }}>
-                        <Box sx={{ marginLeft: { xs: -1, sm: 0 } }}>No</Box>
+                        <Box sx={{ marginLeft: { xs: -1.5, sm: 0 } }}>No</Box>
                       </StyledTableCell>
                       <StyledTableCell sx={{ fontSize: { xs: 10, sm: 12 } }}>
                         <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>Date</Box>
@@ -203,7 +203,7 @@ const ProjectPage = () => {
                         >
                           <Box
                             sx={{
-                              marginLeft: { xs: -1.5, sm: 0 },
+                              marginLeft: { xs: -2, sm: 0 },
                               fontSize: { xs: 9, sm: 12 },
                             }}
                           >
@@ -245,7 +245,7 @@ const ProjectPage = () => {
                         >
                           <Box
                             sx={{
-                              marginLeft: { xs: -4, sm: 0 },
+                              marginLeft: { xs: -3, sm: 0 },
                               width: { xs: 48, sm: 80 },
                               fontSize: { xs: 10, sm: 12 },
                             }}
@@ -260,7 +260,7 @@ const ProjectPage = () => {
                         >
                           <Box
                             sx={{
-                              marginLeft: { xs: -4.5, sm: 0 },
+                              marginLeft: { xs: -3.5, sm: 0 },
                               width: { xs: 35 },
                               fontSize: { xs: 9.5, sm: 12 },
                             }}
@@ -277,7 +277,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -1, sm: 0 },
+                                marginLeft: { xs: -2, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -295,7 +295,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -1, sm: 0 },
+                                marginLeft: { xs: -2, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -313,7 +313,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -1, sm: 0 },
+                                marginLeft: { xs: -2, sm: 0 },
                                 width: { xs: 35 },
                                 fontWeight: "bold",
                                 fontSize: { xs: 9.5, sm: 12 },
@@ -333,7 +333,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -1, sm: 0 },
+                                marginLeft: { xs: -2, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -350,7 +350,7 @@ const ProjectPage = () => {
                             cursor: "pointer",
                           }}
                         >
-                          <Box sx={{ marginLeft: { xs: -1, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -2.5, sm: 0 } }}>
                             <EditIcon
                               sx={{
                                 fontSize: { xs: 15, sm: 28 },
@@ -371,7 +371,7 @@ const ProjectPage = () => {
                             cursor: "pointer",
                           }}
                         >
-                          <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -3.5, sm: 0 } }}>
                             <DeleteIcon
                               sx={{
                                 fontSize: { xs: 15, sm: 28 },
