@@ -203,8 +203,8 @@ const ProjectPage = () => {
                         >
                           <Box
                             sx={{
-                              marginLeft: { xs: -1, sm: 0 },
-                              fontSize: { xs: 10, sm: 12 },
+                              marginLeft: { xs: -1.5, sm: 0 },
+                              fontSize: { xs: 9, sm: 12 },
                             }}
                           >
                             {count++}
@@ -213,9 +213,10 @@ const ProjectPage = () => {
                         <StyledTableCell component="th" scope="row">
                           <Box
                             sx={{
-                              marginLeft: { xs: -4, sm: 0 },
+                              marginLeft: { xs: -5, sm: 0 },
                               width: { xs: 48, sm: 80 },
-                              fontSize: { xs: 9, sm: 12 },
+                              fontSize: { xs: 8.5, sm: 12 },
+                              fontStyle: "italic",
                             }}
                           >
                             {`${item.date.toLocaleString()}`}
@@ -276,7 +277,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -3, sm: 0 },
+                                marginLeft: { xs: -1, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -294,7 +295,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -3, sm: 0 },
+                                marginLeft: { xs: -1, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -312,7 +313,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -3, sm: 0 },
+                                marginLeft: { xs: -1, sm: 0 },
                                 width: { xs: 35 },
                                 fontWeight: "bold",
                                 fontSize: { xs: 9.5, sm: 12 },
@@ -332,7 +333,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -3, sm: 0 },
+                                marginLeft: { xs: -1, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -349,7 +350,7 @@ const ProjectPage = () => {
                             cursor: "pointer",
                           }}
                         >
-                          <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -1, sm: 0 } }}>
                             <EditIcon
                               sx={{
                                 fontSize: { xs: 15, sm: 28 },
@@ -370,7 +371,7 @@ const ProjectPage = () => {
                             cursor: "pointer",
                           }}
                         >
-                          <Box sx={{ marginLeft: { xs: -4, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>
                             <DeleteIcon
                               sx={{
                                 fontSize: { xs: 15, sm: 28 },
