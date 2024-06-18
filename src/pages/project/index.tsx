@@ -151,7 +151,7 @@ const ProjectPage = () => {
               <TableContainer
                 component={Paper}
                 sx={{
-                  width: { xs: "99vw", sm: 800 },
+                  width: { xs: "100vw", sm: 800 },
                 }}
               >
                 <Table aria-label="customized table">
@@ -213,7 +213,7 @@ const ProjectPage = () => {
                         <StyledTableCell component="th" scope="row">
                           <Box
                             sx={{
-                              marginLeft: { xs: -5, sm: 0 },
+                              marginLeft: { xs: -4.5, sm: 0 },
                               width: { xs: 48, sm: 80 },
                               fontSize: { xs: 8.5, sm: 12 },
                               fontStyle: "italic",

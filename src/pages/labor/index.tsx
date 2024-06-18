@@ -119,7 +119,6 @@ const LaborPage = () => {
                 sx={{
                   width: { xs: "99vw", sm: 600 },
                   // margin: "0 auto",
-                  ml: 2,
                 }}
               >
                 <Table aria-label="customized table">
