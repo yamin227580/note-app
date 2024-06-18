@@ -228,7 +228,7 @@ const ProjectPage = () => {
                         >
                           <Box
                             sx={{
-                              marginLeft: { xs: -3, sm: 0 },
+                              marginLeft: { xs: -4, sm: 0 },
                               width: { xs: 45, sm: 80 },
                               fontSize: { xs: 10, sm: 12 },
                             }}
@@ -244,7 +244,7 @@ const ProjectPage = () => {
                         >
                           <Box
                             sx={{
-                              marginLeft: { xs: -3, sm: 0 },
+                              marginLeft: { xs: -4, sm: 0 },
                               width: { xs: 48, sm: 80 },
                               fontSize: { xs: 10, sm: 12 },
                             }}
