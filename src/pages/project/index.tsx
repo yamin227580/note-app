@@ -164,12 +164,12 @@ const ProjectPage = () => {
                         <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>Date</Box>
                       </StyledTableCell>
                       <StyledTableCell sx={{ fontSize: { xs: 10, sm: 12 } }}>
-                        <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>
+                        <Box sx={{ marginLeft: { xs: -4, sm: 0 } }}>
                           Site Name
                         </Box>
                       </StyledTableCell>
                       <StyledTableCell sx={{ fontSize: { xs: 10, sm: 12 } }}>
-                        <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>
+                        <Box sx={{ marginLeft: { xs: -4, sm: 0 } }}>
                           Site Address
                         </Box>
                       </StyledTableCell>
@@ -177,7 +177,7 @@ const ProjectPage = () => {
                         <Box sx={{ marginLeft: { xs: -4, sm: 0 } }}>Total</Box>
                       </StyledTableCell>
                       <StyledTableCell sx={{ fontSize: { xs: 10, sm: 12 } }}>
-                        <Box sx={{ marginLeft: { xs: -2, sm: 0 } }}>
+                        <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>
                           Expense
                         </Box>
                       </StyledTableCell>
@@ -215,7 +215,7 @@ const ProjectPage = () => {
                             sx={{
                               marginLeft: { xs: -4, sm: 0 },
                               width: { xs: 48, sm: 80 },
-                              fontSize: { xs: 9.3, sm: 12 },
+                              fontSize: { xs: 9, sm: 12 },
                             }}
                           >
                             {`${item.date.toLocaleString()}`}
@@ -276,7 +276,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -2, sm: 0 },
+                                marginLeft: { xs: -3, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -294,7 +294,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -2, sm: 0 },
+                                marginLeft: { xs: -3, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -312,7 +312,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -2, sm: 0 },
+                                marginLeft: { xs: -3, sm: 0 },
                                 width: { xs: 35 },
                                 fontWeight: "bold",
                                 fontSize: { xs: 9.5, sm: 12 },
@@ -332,7 +332,7 @@ const ProjectPage = () => {
                           >
                             <Box
                               sx={{
-                                marginLeft: { xs: -2, sm: 0 },
+                                marginLeft: { xs: -3, sm: 0 },
                                 width: { xs: 35 },
                                 fontSize: { xs: 9.5, sm: 12 },
                               }}
@@ -349,10 +349,10 @@ const ProjectPage = () => {
                             cursor: "pointer",
                           }}
                         >
-                          <Box sx={{ marginLeft: { xs: -2, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>
                             <EditIcon
                               sx={{
-                                fontSize: { xs: 16, sm: 28 },
+                                fontSize: { xs: 15, sm: 28 },
                                 cursor: "pointer",
                               }}
                               onClick={() => {
@@ -370,10 +370,10 @@ const ProjectPage = () => {
                             cursor: "pointer",
                           }}
                         >
-                          <Box sx={{ marginLeft: { xs: -3.5, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -4, sm: 0 } }}>
                             <DeleteIcon
                               sx={{
-                                fontSize: { xs: 16, sm: 28 },
+                                fontSize: { xs: 15, sm: 28 },
                                 cursor: "pointer",
                               }}
                               onClick={() => {
