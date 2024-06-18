@@ -155,12 +155,12 @@ const ExpenseBySite = () => {
                           <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>Date</Box>
                         </StyledTableCell>
                         <StyledTableCell sx={{ fontSize: 12 }}>
-                          <Box sx={{ marginLeft: { xs: -3, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -4, sm: 0 } }}>
                             Labor Type
                           </Box>
                         </StyledTableCell>
                         <StyledTableCell sx={{ fontSize: 12 }}>
-                          <Box sx={{ marginLeft: { xs: -7, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -6.2, sm: 0 } }}>
                             Number
                           </Box>
                         </StyledTableCell>
