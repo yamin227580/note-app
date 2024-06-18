@@ -221,7 +221,7 @@ const ExpensePage = () => {
                           </Box>
                         </StyledTableCell>
                         <StyledTableCell component="th" scope="row">
-                          <Box sx={{ marginLeft: { xs: -2, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -4, sm: 0 } }}>
                             <EditIcon
                               sx={{
                                 fontSize: { xs: 16, sm: 28 },
@@ -235,7 +235,11 @@ const ExpensePage = () => {
                           </Box>
                         </StyledTableCell>
                         <StyledTableCell component="th" scope="row">
-                          <Box sx={{ marginLeft: { xs: -2, sm: 0 } }}>
+                          <Box
+                            sx={{
+                              marginLeft: { xs: -4, sm: 0 },
+                            }}
+                          >
                             <DeleteIcon
                               sx={{
                                 fontSize: { xs: 16, sm: 28 },
