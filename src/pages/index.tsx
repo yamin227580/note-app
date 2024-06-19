@@ -23,12 +23,26 @@ export default function Home() {
 
     setTimeout(() => {
       setVisibleForTxt(true);
-    }, 1600);
+    }, 1800);
 
     setTimeout(() => {
       setVisibleForBtn(true);
-    }, 2200);
+    }, 2600);
   }, []);
+
+  if (session.status === "loading") {
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        width: "100%vw",
+        height: "100%vh",
+      }}
+    >
+      <Typography sx={{ fontSize: 22 }}>Loading....</Typography>;
+    </Box>;
+  }
 
   if (!session.data) {
     return (
@@ -67,7 +81,7 @@ export default function Home() {
           in={visibleForImg}
           mountOnEnter
           unmountOnExit
-          timeout={900}
+          timeout={1000}
         >
           <Box
             sx={{
@@ -95,7 +109,7 @@ export default function Home() {
         <Zoom
           in={visibleForTxt}
           style={{
-            transitionDuration: "1100ms",
+            transitionDuration: "1200ms",
           }}
         >
           <Typography

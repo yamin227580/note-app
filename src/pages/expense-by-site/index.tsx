@@ -4,6 +4,10 @@ import { AppContext } from "@/context/AppContext";
 import { expenseDataBySiteType } from "@/types/typesForApp";
 import {
   Box,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
   FormControl,
   InputLabel,
   ListItemText,
@@ -28,6 +32,7 @@ const ExpenseBySite = () => {
   const [siteName, setSiteName] = useState<string>("");
   const [expenseData, setExpenseData] = useState<expenseDataBySiteType[]>([]);
   const [open, setOpen] = useState<boolean>(false);
+  const [openForAlert, setOpenForAlert] = useState<boolean>(false);
   let count: number = 1;
 
   const handleOnChangeSiteName = (evt: SelectChangeEvent<string>) => {
@@ -41,6 +46,9 @@ const ExpenseBySite = () => {
   useEffect(() => {
     if (data.expensesDataBySiteWithTotal) {
       setExpenseData(data.expensesDataBySiteWithTotal);
+    }
+    if (data.projects.length === 0) {
+      setOpenForAlert(true);
     }
     return () => {
       data.expensesDataBySiteWithTotal = [];
@@ -86,10 +94,15 @@ const ExpenseBySite = () => {
         >
           <FormControl
             fullWidth
-            sx={{ width: { xs: "60%", sm: "20%" }, mt: 2 }}
+            sx={{
+              width: { xs: "60%", sm: "20%" },
+              mt: 2,
+            }}
           >
             <InputLabel
-              sx={{ color: data.isLightTheme ? "black" : "info.main" }}
+              sx={{
+                color: data.isLightTheme ? "black" : "info.main",
+              }}
             >
               Choose Site
             </InputLabel>
@@ -97,7 +110,9 @@ const ExpenseBySite = () => {
               value={siteName}
               label="Choose SiteName"
               onChange={handleOnChangeSiteName}
-              sx={{ color: data.isLightTheme ? "black" : "info.main" }}
+              sx={{
+                color: data.isLightTheme ? "black" : "info.main",
+              }}
             >
               {data.projects.map((item) => (
                 <MenuItem key={item.id} value={item.siteName}>
@@ -288,6 +303,25 @@ const ExpenseBySite = () => {
           <AlertForNotExitData open={open} setOpen={setOpen} />
         )}
       </Box>
+      <Dialog open={openForAlert} onClose={() => setOpenForAlert(false)}>
+        <DialogTitle>Alert</DialogTitle>
+        <DialogContent sx={{ width: 300 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <Typography>There is not any project now.</Typography>
+          </Box>
+          <Box sx={{ mt: 3, display: "flex", justifyContent: "flex-end" }}>
+            <Button variant="contained" onClick={() => setOpenForAlert(false)}>
+              Close
+            </Button>
+          </Box>
+        </DialogContent>
+      </Dialog>
     </Box>
   );
 };

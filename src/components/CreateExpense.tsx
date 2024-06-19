@@ -25,6 +25,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import AlertForCreateData from "./AlertForCreateData";
 
 interface Props {
   open: boolean;
@@ -45,6 +46,7 @@ const CreatExpense = ({ open, setOpen }: Props) => {
   const [labors, setLabors] = useState<Labor[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const { data, setData, addExpense } = useContext(AppContext);
+  const [openForCreate, setOpenForCreate] = useState(false);
 
   const handleOnChange = (evt: SelectChangeEvent<string>) => {
     setExpenseData({ ...expenseData, laborType: evt.target.value });
@@ -66,6 +68,7 @@ const CreatExpense = ({ open, setOpen }: Props) => {
       setOpen(false);
       setExpenseData(defaultExpenseData);
       setValue(null);
+      setOpenForCreate(true);
     }
   };
 
@@ -188,6 +191,11 @@ const CreatExpense = ({ open, setOpen }: Props) => {
           </Box>
         </DialogContent>
       </Dialog>
+      <AlertForCreateData
+        openForCreate={openForCreate}
+        setOpenForCreate={setOpenForCreate}
+        msg="new expense"
+      />
     </Box>
   );
 };

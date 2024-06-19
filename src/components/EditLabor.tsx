@@ -10,6 +10,7 @@ import {
   TextField,
 } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
+import AlertForUpdateData from "./AlertForUpdateData";
 
 interface Props {
   idToEdit: number | undefined;
@@ -26,6 +27,7 @@ const EditLabor = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
   const { data, setData } = useContext(AppContext);
   const [laborData, setLaborData] = useState<LaborToUpdate>(defaultLaborData);
   const currentLaborData = data.labors.find((item) => item.id === idToEdit);
+  const [openForUpdateAlert, setOpenForUpdateAlert] = useState(false);
 
   useEffect(() => {
     if (currentLaborData) {
@@ -49,6 +51,7 @@ const EditLabor = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
     setData({ ...data, labors: laborsData });
     setLaborData(defaultLaborData);
     setOpenForEdit(false);
+    setOpenForUpdateAlert(true);
   };
 
   return (
@@ -79,7 +82,7 @@ const EditLabor = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
               placeholder="price"
               type="number"
               inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-              value={laborData.price}
+              value={laborData.price === 0 ? "" : laborData.price}
               onChange={(evt) => {
                 const inputValue = Number(evt.target.value);
                 if (!isNaN(inputValue)) {
@@ -106,6 +109,11 @@ const EditLabor = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
           </Box>
         </DialogContent>
       </Dialog>
+      <AlertForUpdateData
+        openForUpdateAlert={openForUpdateAlert}
+        setOpenForUpdateAlert={setOpenForUpdateAlert}
+        msg="labor data"
+      />
     </Box>
   );
 };

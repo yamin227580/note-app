@@ -1,3 +1,4 @@
+import AlertForDeleteData from "@/components/AlertForDeleteData";
 import CreateProject from "@/components/CreateProject";
 import EditProject from "@/components/EditProject";
 import MenuBar from "@/components/MenuBar";
@@ -42,6 +43,7 @@ const ProjectPage = () => {
   let count: number = 1;
   const [openForEdit, setOpenForEdit] = useState(false);
   const [idToEdit, setIdToEdit] = useState<number>();
+  const [openForDeleteAlert, setOpenForDeleteAlert] = useState(false);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -101,6 +103,7 @@ const ProjectPage = () => {
         const { projectsData } = await response.json();
         setData({ ...data, projects: projectsData });
         setOpenForDelete(false);
+        setOpenForDeleteAlert(true);
       }
     } catch (error) {
       console.error("Error occurred while deleting:", error);
@@ -420,6 +423,11 @@ const ProjectPage = () => {
             </Box>
           </DialogContent>
         </Dialog>
+        <AlertForDeleteData
+          openForDeleteAlert={openForDeleteAlert}
+          setOpenForDeleteAlert={setOpenForDeleteAlert}
+          msg="project data"
+        />
       </Box>
     </Box>
   );

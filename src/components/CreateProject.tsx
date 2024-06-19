@@ -12,6 +12,7 @@ import {
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { Dispatch, SetStateAction, useContext, useState } from "react";
+import AlertForCreateData from "./AlertForCreateData";
 
 interface Props {
   open: boolean;
@@ -28,8 +29,8 @@ const CreatProject = ({ open, setOpen }: Props) => {
   const [projectData, setProjectData] =
     useState<CreateProjectPayload>(defaultProjectData);
   const { addProject } = useContext(AppContext);
-
   const [value, setValue] = useState<Dayjs | null>();
+  const [openForCreate, setOpenForCreate] = useState(false);
 
   const handleCreateProject = async () => {
     if (projectData) {
@@ -43,6 +44,7 @@ const CreatProject = ({ open, setOpen }: Props) => {
       setOpen(false);
       setProjectData(defaultProjectData);
       setValue(null);
+      setOpenForCreate(true);
     }
   };
 
@@ -144,6 +146,11 @@ const CreatProject = ({ open, setOpen }: Props) => {
           </Box>
         </DialogContent>
       </Dialog>
+      <AlertForCreateData
+        openForCreate={openForCreate}
+        setOpenForCreate={setOpenForCreate}
+        msg="new project"
+      />
     </Box>
   );
 };

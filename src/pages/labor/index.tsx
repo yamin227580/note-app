@@ -1,3 +1,4 @@
+import AlertForDeleteData from "@/components/AlertForDeleteData";
 import CreateLabor from "@/components/CreateLabor";
 import EditLabor from "@/components/EditLabor";
 import MenuBar from "@/components/MenuBar";
@@ -30,6 +31,7 @@ const LaborPage = () => {
   const [openForEdit, setOpenForEdit] = useState(false);
   const [idToEdit, setIdToEdit] = useState<number>();
   const { data, setData } = useContext(AppContext);
+  const [openForDeleteAlert, setOpenForDeleteAlert] = useState(false);
 
   let count: number = 1;
 
@@ -66,6 +68,7 @@ const LaborPage = () => {
         const { laborsData } = await response.json();
         setData({ ...data, labors: laborsData });
         setOpenForDelete(false);
+        setOpenForDeleteAlert(true);
       }
     } catch (error) {
       console.error("Error occurred while deleting:", error);
@@ -234,6 +237,11 @@ const LaborPage = () => {
           </DialogContent>
         </Dialog>
       </Box>
+      <AlertForDeleteData
+        openForDeleteAlert={openForDeleteAlert}
+        setOpenForDeleteAlert={setOpenForDeleteAlert}
+        msg="labor data"
+      />
     </Box>
   );
 };

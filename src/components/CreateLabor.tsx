@@ -10,6 +10,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Dispatch, SetStateAction, useContext, useState } from "react";
+import AlertForCreateData from "./AlertForCreateData";
 
 interface Props {
   open: boolean;
@@ -24,6 +25,7 @@ const CreatLabor = ({ open, setOpen }: Props) => {
   const [laborData, setLaborData] =
     useState<CreateLaborPayload>(defaultLaborData);
   const { addLabor } = useContext(AppContext);
+  const [openForCreate, setOpenForCreate] = useState(false);
 
   const handleCreateLabor = async () => {
     if (laborData.laborType && laborData.price) {
@@ -36,6 +38,7 @@ const CreatLabor = ({ open, setOpen }: Props) => {
       addLabor(laborsData);
       setOpen(false);
       setLaborData(defaultLaborData);
+      setOpenForCreate(true);
     }
   };
 
@@ -92,6 +95,11 @@ const CreatLabor = ({ open, setOpen }: Props) => {
           </Box>
         </DialogContent>
       </Dialog>
+      <AlertForCreateData
+        openForCreate={openForCreate}
+        setOpenForCreate={setOpenForCreate}
+        msg="new labor"
+      />
     </Box>
   );
 };

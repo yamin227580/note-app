@@ -12,6 +12,7 @@ import {
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { useContext, useEffect, useState } from "react";
+import AlertForUpdateData from "./AlertForUpdateData";
 
 interface Props {
   idToEdit: number | undefined;
@@ -32,7 +33,7 @@ const EditProject = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
     useState<ProjectToUpdate>(defaultProjectData);
   const [value, setValue] = useState<Dayjs | null>();
   const currentProjectData = data.projects.find((item) => item.id === idToEdit);
-
+  const [openForUpdateAlert, setOpenForUpdateAlert] = useState(false);
   useEffect(() => {
     if (currentProjectData) {
       setProjectData({
@@ -57,6 +58,7 @@ const EditProject = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
     setData({ ...data, projects: projectsData });
     setProjectData(defaultProjectData);
     setOpenForEdit(false);
+    setOpenForUpdateAlert(true);
   };
 
   return (
@@ -124,7 +126,7 @@ const EditProject = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
               placeholder="total price"
               type="number"
               inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-              value={projectData.totalPrice}
+              value={projectData.totalPrice === 0 ? "" : projectData.totalPrice}
               onChange={(evt) => {
                 const inputValue = Number(evt.target.value);
                 if (!isNaN(inputValue)) {
@@ -160,6 +162,11 @@ const EditProject = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
           </Box>
         </DialogContent>
       </Dialog>
+      <AlertForUpdateData
+        openForUpdateAlert={openForUpdateAlert}
+        setOpenForUpdateAlert={setOpenForUpdateAlert}
+        msg="project data"
+      />
     </Box>
   );
 };

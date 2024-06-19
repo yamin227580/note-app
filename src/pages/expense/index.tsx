@@ -1,3 +1,4 @@
+import AlertForDeleteData from "@/components/AlertForDeleteData";
 import CreatExpense from "@/components/CreateExpense";
 import EditExpense from "@/components/EditExpense";
 import MenuBar from "@/components/MenuBar";
@@ -31,6 +32,7 @@ const ExpensePage = () => {
   const [idToDelete, setIdToDelete] = useState<number>();
   const [openForEdit, setOpenForEdit] = useState(false);
   const [idToEdit, setIdToEdit] = useState<number>();
+  const [openForDeleteAlert, setOpenForDeleteAlert] = useState(false);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -65,6 +67,7 @@ const ExpensePage = () => {
         const { expensesData } = await response.json();
         setData({ ...data, expenses: expensesData });
         setOpenForDelete(false);
+        setOpenForDeleteAlert(true);
       }
     } catch (error) {
       console.error("Error occurred while deleting:", error);
@@ -288,6 +291,11 @@ const ExpensePage = () => {
             </Box>
           </DialogContent>
         </Dialog>
+        <AlertForDeleteData
+          openForDeleteAlert={openForDeleteAlert}
+          setOpenForDeleteAlert={setOpenForDeleteAlert}
+          msg="expense data"
+        />
       </Box>
     </Box>
   );

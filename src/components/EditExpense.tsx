@@ -18,6 +18,7 @@ import {
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { useContext, useEffect, useState } from "react";
+import AlertForUpdateData from "./AlertForUpdateData";
 
 interface Props {
   idToEdit: number | undefined;
@@ -38,6 +39,7 @@ const EditExpense = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
     useState<ExpenseToUpdate>(defaultExpenseData);
   const [value, setValue] = useState<Dayjs | null>();
   const currentExpenseData = data.expenses.find((item) => item.id === idToEdit);
+  const [openForUpdateAlert, setOpenForUpdateAlert] = useState(false);
 
   useEffect(() => {
     if (currentExpenseData) {
@@ -63,6 +65,7 @@ const EditExpense = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
     setData({ ...data, expenses: expensesData });
     setExpenseData(defaultExpenseData);
     setOpenForEdit(false);
+    setOpenForUpdateAlert(true);
   };
 
   const handleOnChange = (evt: SelectChangeEvent<string>) => {
@@ -125,14 +128,13 @@ const EditExpense = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
             <TextField
               sx={{
                 width: { xs: "90%", sm: "100%" },
-
                 mb: 4,
                 mt: 4,
               }}
               placeholder="number"
               type="number"
               inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-              value={expenseData.number}
+              value={expenseData.number === 0 ? "" : expenseData.number}
               onChange={(evt) => {
                 const inputValue = Number(evt.target.value);
                 if (!isNaN(inputValue)) {
@@ -184,6 +186,11 @@ const EditExpense = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
           </Box>
         </DialogContent>
       </Dialog>
+      <AlertForUpdateData
+        openForUpdateAlert={openForUpdateAlert}
+        setOpenForUpdateAlert={setOpenForUpdateAlert}
+        msg="expense data"
+      />
     </Box>
   );
 };
