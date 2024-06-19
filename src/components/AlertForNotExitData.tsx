@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Dialog, DialogContent, Typography } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 
 interface Props {
@@ -17,8 +10,7 @@ const AlertForNotExitData = ({ open, setOpen }: Props) => {
   return (
     <Box>
       <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogTitle>Alert</DialogTitle>
-        <DialogContent sx={{ width: 300 }}>
+        <DialogContent sx={{ width: 320 }}>
           <Box
             sx={{
               display: "flex",
@@ -26,7 +18,9 @@ const AlertForNotExitData = ({ open, setOpen }: Props) => {
               flexDirection: "column",
             }}
           >
-            <Typography>There is no expenses for this site.</Typography>
+            <Typography sx={{ mt: 3, fontSize: 16 }}>
+              There is no expenses for this site.
+            </Typography>
           </Box>
           <Box sx={{ mt: 3, display: "flex", justifyContent: "flex-end" }}>
             <Button variant="contained" onClick={() => setOpen(false)}>
