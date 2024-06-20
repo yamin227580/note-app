@@ -18,7 +18,7 @@ const AlertForUpdateData = ({
         open={openForUpdateAlert}
         onClose={() => setOpenForUpdateAlert(false)}
       >
-        <DialogContent sx={{ width: 320 }}>
+        <DialogContent sx={{ width: 300 }}>
           <Box
             sx={{
               display: "flex",

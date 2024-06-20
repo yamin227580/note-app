@@ -10,7 +10,7 @@ const AlertForNotExitData = ({ open, setOpen }: Props) => {
   return (
     <Box>
       <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogContent sx={{ width: 320 }}>
+        <DialogContent sx={{ width: 300 }}>
           <Box
             sx={{
               display: "flex",
@@ -18,7 +18,7 @@ const AlertForNotExitData = ({ open, setOpen }: Props) => {
               flexDirection: "column",
             }}
           >
-            <Typography sx={{ mt: 3, fontSize: 16 }}>
+            <Typography sx={{ mt: 3, fontSize: 14 }}>
               There is no expenses for this site.
             </Typography>
           </Box>

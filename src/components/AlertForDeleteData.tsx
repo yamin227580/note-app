@@ -18,7 +18,7 @@ const AlertForDeleteData = ({
         open={openForDeleteAlert}
         onClose={() => setOpenForDeleteAlert(false)}
       >
-        <DialogContent sx={{ width: 320 }}>
+        <DialogContent sx={{ width: 300 }}>
           <Box
             sx={{
               display: "flex",

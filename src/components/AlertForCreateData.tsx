@@ -15,7 +15,7 @@ const AlertForCreateData = ({
   return (
     <Box>
       <Dialog open={openForCreate} onClose={() => setOpenForCreate(false)}>
-        <DialogContent sx={{ width: 320 }}>
+        <DialogContent sx={{ width: 300 }}>
           <Box
             sx={{
               display: "flex",
