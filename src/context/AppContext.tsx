@@ -1,4 +1,9 @@
-import { expenseDataBySiteType } from "@/types/typesForApp";
+import {
+  ExpenseToUpdate,
+  LaborToUpdate,
+  ProjectToUpdate,
+  expenseDataBySiteType,
+} from "@/types/typesForApp";
 import { Expense, Labor, Project } from "@prisma/client";
 import { ReactNode, createContext, useState } from "react";
 
@@ -25,6 +30,10 @@ export interface AppContextType {
   addProject: (project: Project) => void;
   addExpense: (expense: Expense) => void;
   filterBySite: (siteName: string) => any;
+  deleteData: (id: number, dataToDelete: string) => void;
+  updateLabor: (id: number, dataToUpdate: LaborToUpdate) => void;
+  updateProject: (id: number, dataToUpdate: ProjectToUpdate) => void;
+  updateExpense: (id: number, dataToUpdate: ExpenseToUpdate) => void;
 }
 
 export const defaultAppContextData: AppContextType = {
@@ -34,6 +43,10 @@ export const defaultAppContextData: AppContextType = {
   addProject: (project: Project) => {},
   addExpense: (expense: Expense) => {},
   filterBySite: (siteName: string) => {},
+  deleteData: (id: number, dataToDelete: string) => {},
+  updateLabor: (id: number, dataToUpdate: LaborToUpdate) => {},
+  updateProject: (id: number, dataToUpdate: ProjectToUpdate) => {},
+  updateExpense: (id: number, dataToUpdate: ExpenseToUpdate) => {},
 };
 
 export const AppContext = createContext<AppContextType>(defaultAppContextData);
@@ -77,9 +90,75 @@ const AppProvider = ({ children }: Props) => {
     setData({ ...data, expensesDataBySiteWithTotal: expenseDataWithTotal });
     return expenseDataWithTotal;
   };
+  const deleteData = (id: number, dataToDelete: string) => {
+    if (dataToDelete === "labor") {
+      const filterData = data.labors.filter((item) => item.id !== id);
+      setData({ ...data, labors: filterData });
+    }
+    if (dataToDelete === "project") {
+      const filterData = data.projects.filter((item) => item.id !== id);
+      setData({ ...data, projects: filterData });
+    }
+    if (dataToDelete === "expense") {
+      const filterData = data.expenses.filter((item) => item.id !== id);
+      setData({ ...data, expenses: filterData });
+    }
+  };
+  const updateLabor = (id: number, dataToUpdate: LaborToUpdate) => {
+    const updatedData = data.labors.map((item) =>
+      item.id === id
+        ? {
+            ...item,
+            laborType: dataToUpdate.laborType,
+            price: dataToUpdate.price,
+          }
+        : item
+    );
+    setData({ ...data, labors: updatedData });
+  };
+  const updateProject = (id: number, dataToUpdate: ProjectToUpdate) => {
+    const updatedData = data.projects.map((item) =>
+      item.id === id
+        ? {
+            ...item,
+            siteName: dataToUpdate.siteName,
+            siteAddress: dataToUpdate.siteAddress,
+            totalPrice: dataToUpdate.totalPrice,
+            date: dataToUpdate.date,
+          }
+        : item
+    );
+    setData({ ...data, projects: updatedData });
+  };
+  const updateExpense = (id: number, dataToUpdate: ExpenseToUpdate) => {
+    const updatedData = data.expenses.map((item) =>
+      item.id === id
+        ? {
+            ...item,
+            siteName: dataToUpdate.siteName,
+            laborType: dataToUpdate.laborType,
+            number: dataToUpdate.number,
+            date: dataToUpdate.date,
+          }
+        : item
+    );
+    setData({ ...data, expenses: updatedData });
+  };
+
   return (
     <AppContext.Provider
-      value={{ data, setData, addLabor, addProject, addExpense, filterBySite }}
+      value={{
+        data,
+        setData,
+        addLabor,
+        addProject,
+        addExpense,
+        filterBySite,
+        deleteData,
+        updateLabor,
+        updateProject,
+        updateExpense,
+      }}
     >
       {children}
     </AppContext.Provider>

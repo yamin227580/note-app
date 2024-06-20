@@ -26,7 +26,7 @@ import { useContext, useState } from "react";
 
 const ExpensePage = () => {
   const [open, setOpen] = useState(false);
-  const { data, setData } = useContext(AppContext);
+  const { data, setData, deleteData } = useContext(AppContext);
   let count: number = 1;
   const [openForDelete, setOpenForDelete] = useState(false);
   const [idToDelete, setIdToDelete] = useState<number>();
@@ -64,8 +64,9 @@ const ExpensePage = () => {
             headers: { "content-type": "application/json" },
           }
         );
-        const { expensesData } = await response.json();
-        setData({ ...data, expenses: expensesData });
+        const { deletedExpenseId } = await response.json();
+        //setData({ ...data, expenses: expensesData });
+        deleteData(idToDelete, "expense");
         setOpenForDelete(false);
         setOpenForDeleteAlert(true);
       }

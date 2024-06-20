@@ -30,7 +30,7 @@ const LaborPage = () => {
   const [idToDelete, setIdToDelete] = useState<number>();
   const [openForEdit, setOpenForEdit] = useState(false);
   const [idToEdit, setIdToEdit] = useState<number>();
-  const { data, setData } = useContext(AppContext);
+  const { data, setData, deleteData } = useContext(AppContext);
   const [openForDeleteAlert, setOpenForDeleteAlert] = useState(false);
 
   let count: number = 1;
@@ -65,8 +65,9 @@ const LaborPage = () => {
             headers: { "content-type": "application/json" },
           }
         );
-        const { laborsData } = await response.json();
-        setData({ ...data, labors: laborsData });
+        const { deletedLaborId } = await response.json();
+        //setData({ ...data, labors: laborsData });
+        deleteData(idToDelete, "labor");
         setOpenForDelete(false);
         setOpenForDeleteAlert(true);
       }

@@ -34,7 +34,7 @@ const defaultExpenseData = {
 };
 
 const EditExpense = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
-  const { data, setData } = useContext(AppContext);
+  const { data, setData, updateExpense } = useContext(AppContext);
   const [expenseData, setExpenseData] =
     useState<ExpenseToUpdate>(defaultExpenseData);
   const [value, setValue] = useState<Dayjs | null>();
@@ -61,8 +61,8 @@ const EditExpense = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
         expenseData,
       }),
     });
-    const { expensesData } = await response.json();
-    setData({ ...data, expenses: expensesData });
+    const { updatedExpenseId } = await response.json();
+    updateExpense(idToEdit as number, expenseData);
     setExpenseData(defaultExpenseData);
     setOpenForEdit(false);
     setOpenForUpdateAlert(true);

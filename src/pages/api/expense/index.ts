@@ -42,28 +42,16 @@ export default async function handler(
     if (!idToDelete)
       return res.status(405).send("bad request!Missing required fields");
 
-    await prisma.expense.delete({ where: { id: idToDelete } });
-    const expensesAllData = await prisma.expense.findMany({
-      where: { email: session.user?.email },
+    const deletedExpenseId = await prisma.expense.delete({
+      where: { id: idToDelete },
     });
-    const laborAllData = await prisma.labor.findMany({
-      where: { email: session.user?.email },
-    });
-    const projectAllData = await prisma.project.findMany({
-      where: { email: session.user?.email },
-    });
-    const expensesDataWithLaborType = expensesAllData.filter((expense) =>
-      laborAllData.some((labor) => labor.laborType === expense.laborType)
-    );
-    const expensesData = expensesDataWithLaborType.filter((expense) =>
-      projectAllData.some((project) => project.siteName === expense.siteName)
-    );
-    return res.send({ expensesData });
+
+    return res.send({ deletedExpenseId });
   } else if (req.method === "PUT") {
     const { idToEdit, expenseData } = req.body;
     if (!idToEdit && expenseData)
       return res.status(405).send("bad request!Missing required fields");
-    await prisma.expense.update({
+    const updatedExpenseId = await prisma.expense.update({
       data: {
         siteName: expenseData.siteName,
         laborType: expenseData.laborType,
@@ -72,22 +60,8 @@ export default async function handler(
       },
       where: { id: idToEdit },
     });
-    const expensesAllData = await prisma.expense.findMany({
-      where: { email: session.user?.email },
-    });
-    const laborAllData = await prisma.labor.findMany({
-      where: { email: session.user?.email },
-    });
-    const projectAllData = await prisma.project.findMany({
-      where: { email: session.user?.email },
-    });
-    const expensesDataWithLaborType = expensesAllData.filter((expense) =>
-      laborAllData.some((labor) => labor.laborType === expense.laborType)
-    );
-    const expensesData = expensesDataWithLaborType.filter((expense) =>
-      projectAllData.some((project) => project.siteName === expense.siteName)
-    );
-    return res.send({ expensesData });
+
+    return res.send({ updatedExpenseId });
   }
   res.status(200).json({ name: "John Doe" });
 }

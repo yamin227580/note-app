@@ -28,7 +28,7 @@ const defaultProjectData = {
 };
 
 const EditProject = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
-  const { data, setData } = useContext(AppContext);
+  const { data, setData, updateProject } = useContext(AppContext);
   const [projectData, setProjectData] =
     useState<ProjectToUpdate>(defaultProjectData);
   const [value, setValue] = useState<Dayjs | null>();
@@ -54,8 +54,9 @@ const EditProject = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
         projectData,
       }),
     });
-    const { projectsData } = await response.json();
-    setData({ ...data, projects: projectsData });
+    const { updatedProjectId } = await response.json();
+    //setData({ ...data, projects: projectsData });
+    updateProject(idToEdit as number, projectData);
     setProjectData(defaultProjectData);
     setOpenForEdit(false);
     setOpenForUpdateAlert(true);

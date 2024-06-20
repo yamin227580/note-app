@@ -30,23 +30,20 @@ export default async function handler(
     if (!idToDelete)
       return res.status(405).send("bad request!Missing required fields");
 
-    await prisma.labor.delete({ where: { id: idToDelete } });
-    const laborsData = await prisma.labor.findMany({
-      where: { email: session.user?.email },
+    const deletedLaborId = await prisma.labor.delete({
+      where: { id: idToDelete },
     });
-    return res.send({ laborsData });
+    return res.send({ deletedLaborId });
   } else if (req.method === "PUT") {
     const { idToEdit, laborData } = req.body;
     if (!idToEdit && laborData)
       return res.status(405).send("bad request!Missing required fields");
-    await prisma.labor.update({
+    const updatedLaborId = await prisma.labor.update({
       data: { laborType: laborData.laborType, price: laborData.price },
       where: { id: idToEdit },
     });
-    const laborsData = await prisma.labor.findMany({
-      where: { email: session.user?.email },
-    });
-    return res.send({ laborsData });
+
+    return res.send({ updatedLaborId });
   }
   res.status(200).json({ name: "John Doe" });
 }

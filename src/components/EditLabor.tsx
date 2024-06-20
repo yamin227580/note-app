@@ -24,7 +24,7 @@ const defaultLaborData = {
 };
 
 const EditLabor = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
-  const { data, setData } = useContext(AppContext);
+  const { data, setData, updateLabor } = useContext(AppContext);
   const [laborData, setLaborData] = useState<LaborToUpdate>(defaultLaborData);
   const currentLaborData = data.labors.find((item) => item.id === idToEdit);
   const [openForUpdateAlert, setOpenForUpdateAlert] = useState(false);
@@ -47,8 +47,9 @@ const EditLabor = ({ idToEdit, openForEdit, setOpenForEdit }: Props) => {
         laborData,
       }),
     });
-    const { laborsData } = await response.json();
-    setData({ ...data, labors: laborsData });
+    const { updatedLaborId } = await response.json();
+    //setData({ ...data, labors: laborsData });
+    updateLabor(idToEdit as number, laborData);
     setLaborData(defaultLaborData);
     setOpenForEdit(false);
     setOpenForUpdateAlert(true);

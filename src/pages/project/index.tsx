@@ -31,7 +31,7 @@ interface siteNameWithTotalType {
 
 const ProjectPage = () => {
   const [open, setOpen] = useState(false);
-  const { data, setData, filterBySite } = useContext(AppContext);
+  const { data, setData, filterBySite, deleteData } = useContext(AppContext);
   const [idToDelete, setIdToDelete] = useState<number>();
   const [openForDelete, setOpenForDelete] = useState(false);
   const siteNameArray = data.projects
@@ -101,7 +101,8 @@ const ProjectPage = () => {
           }
         );
         const { projectsData } = await response.json();
-        setData({ ...data, projects: projectsData });
+        //setData({ ...data, projects: projectsData });
+        deleteData(idToDelete, "project");
         setOpenForDelete(false);
         setOpenForDeleteAlert(true);
       }

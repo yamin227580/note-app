@@ -30,16 +30,16 @@ export default async function handler(
     if (!idToDelete)
       return res.status(405).send("bad request!Missing required fields");
 
-    await prisma.project.delete({ where: { id: idToDelete } });
-    const projectsData = await prisma.project.findMany({
-      where: { email: session.user?.email },
+    const deletedProjectId = await prisma.project.delete({
+      where: { id: idToDelete },
     });
-    return res.send({ projectsData });
+
+    return res.send({ deletedProjectId });
   } else if (req.method === "PUT") {
     const { idToEdit, projectData } = req.body;
     if (!idToEdit && projectData)
       return res.status(405).send("bad request!Missing required fields");
-    await prisma.project.update({
+    const updatedProjectId = await prisma.project.update({
       data: {
         siteName: projectData.siteName,
         siteAddress: projectData.siteAddress,
@@ -48,10 +48,8 @@ export default async function handler(
       },
       where: { id: idToEdit },
     });
-    const projectsData = await prisma.project.findMany({
-      where: { email: session.user?.email },
-    });
-    return res.send({ projectsData });
+
+    return res.send({ updatedProjectId });
   }
   res.status(200).json({ name: "John Doe" });
 }
