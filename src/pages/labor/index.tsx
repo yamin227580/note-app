@@ -213,7 +213,7 @@ const LaborPage = () => {
           openForEdit={openForEdit}
           setOpenForEdit={setOpenForEdit}
         />
-        <Dialog open={openForDelete} onClose={handleClose} sx={{ width: 330 }}>
+        <Dialog open={openForDelete} onClose={handleClose}>
           <DialogContent sx={{ width: 260 }}>
             <Box
               sx={{

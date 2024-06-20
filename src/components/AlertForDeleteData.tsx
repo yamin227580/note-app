@@ -17,9 +17,8 @@ const AlertForDeleteData = ({
       <Dialog
         open={openForDeleteAlert}
         onClose={() => setOpenForDeleteAlert(false)}
-        sx={{ width: 350 }}
       >
-        <DialogContent>
+        <DialogContent sx={{ width: 280 }}>
           <Box
             sx={{
               display: "flex",
@@ -27,7 +26,7 @@ const AlertForDeleteData = ({
               flexDirection: "column",
             }}
           >
-            <Typography sx={{ mt: 3, fontSize: 13 }}>
+            <Typography sx={{ mt: 3, fontSize: 12 }}>
               You deleted {msg} successfully.
             </Typography>
           </Box>
