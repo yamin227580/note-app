@@ -213,8 +213,8 @@ const LaborPage = () => {
           openForEdit={openForEdit}
           setOpenForEdit={setOpenForEdit}
         />
-        <Dialog open={openForDelete} onClose={handleClose}>
-          <DialogContent sx={{ width: 300 }}>
+        <Dialog open={openForDelete} onClose={handleClose} sx={{ width: 330 }}>
+          <DialogContent sx={{ width: 260 }}>
             <Box
               sx={{
                 display: "flex",
@@ -224,9 +224,18 @@ const LaborPage = () => {
                 mt: 2,
               }}
             >
-              <Typography> Are you sure to delete?</Typography>
+              <Typography sx={{ fontSize: 13 }}>
+                {" "}
+                Are you sure to delete?
+              </Typography>
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-around",
+                fontSize: 10,
+              }}
+            >
               <Button onClick={handleClose} variant="contained">
                 Cancel
               </Button>
