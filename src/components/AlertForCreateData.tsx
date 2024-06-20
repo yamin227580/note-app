@@ -15,7 +15,7 @@ const AlertForCreateData = ({
   return (
     <Box>
       <Dialog open={openForCreate} onClose={() => setOpenForCreate(false)}>
-        <DialogContent sx={{ width: 350 }}>
+        <DialogContent sx={{ width: 320 }}>
           <Box
             sx={{
               display: "flex",
@@ -23,7 +23,7 @@ const AlertForCreateData = ({
               flexDirection: "column",
             }}
           >
-            <Typography sx={{ mt: 3, fontSize: 17 }}>
+            <Typography sx={{ mt: 3, fontSize: 14 }}>
               You created {msg} successfully.
             </Typography>
           </Box>

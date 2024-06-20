@@ -107,7 +107,7 @@ const MenuBar = ({ activeSectionValue }: Props) => {
             color: "primary.main",
           }}
         >
-          <Typography sx={{ fontSize: 24, fontWeight: "bolder" }}>
+          <Typography sx={{ fontSize: 22, fontWeight: "bolder" }}>
             NoteApp
           </Typography>
         </Box>
@@ -195,7 +195,7 @@ const MenuBar = ({ activeSectionValue }: Props) => {
             width: "20%",
             textAlign: "center",
             mt: 1,
-            mr: -3,
+            mr: -4,
             zIndex: 150,
           }}
           onClick={handleThemeChange}
@@ -218,7 +218,7 @@ const MenuBar = ({ activeSectionValue }: Props) => {
             zIndex: 150,
           }}
         >
-          <Typography sx={{ fontSize: 24, fontWeight: "bolder" }}>
+          <Typography sx={{ fontSize: 22, fontWeight: "bolder" }}>
             NoteApp
           </Typography>
         </Box>
@@ -227,7 +227,7 @@ const MenuBar = ({ activeSectionValue }: Props) => {
             sx={{ display: { xs: "block", lg: "none", zIndex: 350 } }}
             onClick={() => setOpenDrawer(true)}
           >
-            <MenuIcon sx={{ fontSize: "30px", color: "white", mr: 3 }} />
+            <MenuIcon sx={{ fontSize: "30px", color: "white", mr: 2 }} />
           </IconButton>
         </Box>
       </Box>
