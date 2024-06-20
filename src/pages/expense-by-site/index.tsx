@@ -174,7 +174,7 @@ const ExpenseBySite = () => {
                           </Box>
                         </StyledTableCell>
                         <StyledTableCell sx={{ fontSize: 12 }}>
-                          <Box sx={{ marginLeft: { xs: -6.2, sm: 0 } }}>
+                          <Box sx={{ marginLeft: { xs: -8, sm: 0 } }}>
                             Number
                           </Box>
                         </StyledTableCell>

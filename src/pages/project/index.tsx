@@ -185,7 +185,9 @@ const ProjectPage = () => {
                         </Box>
                       </StyledTableCell>
                       <StyledTableCell sx={{ fontSize: { xs: 10, sm: 12 } }}>
-                        <Box sx={{ marginLeft: { xs: -2, sm: 0 } }}>Remain</Box>
+                        <Box sx={{ marginLeft: { xs: -2, sm: 0 } }}>
+                          Balance
+                        </Box>
                       </StyledTableCell>
                       <StyledTableCell>
                         <span></span>
