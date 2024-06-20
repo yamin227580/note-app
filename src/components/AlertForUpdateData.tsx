@@ -17,8 +17,9 @@ const AlertForUpdateData = ({
       <Dialog
         open={openForUpdateAlert}
         onClose={() => setOpenForUpdateAlert(false)}
+        sx={{ width: 350 }}
       >
-        <DialogContent sx={{ width: 300 }}>
+        <DialogContent>
           <Box
             sx={{
               display: "flex",
@@ -26,7 +27,7 @@ const AlertForUpdateData = ({
               flexDirection: "column",
             }}
           >
-            <Typography sx={{ mt: 3, fontSize: 14 }}>
+            <Typography sx={{ mt: 3, fontSize: 13 }}>
               You updated {msg} successfully.
             </Typography>
           </Box>

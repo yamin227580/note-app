@@ -9,8 +9,8 @@ interface Props {
 const AlertForNotExitData = ({ open, setOpen }: Props) => {
   return (
     <Box>
-      <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogContent sx={{ width: 300 }}>
+      <Dialog open={open} onClose={() => setOpen(false)} sx={{ width: 350 }}>
+        <DialogContent>
           <Box
             sx={{
               display: "flex",
@@ -18,7 +18,7 @@ const AlertForNotExitData = ({ open, setOpen }: Props) => {
               flexDirection: "column",
             }}
           >
-            <Typography sx={{ mt: 3, fontSize: 14 }}>
+            <Typography sx={{ mt: 3, fontSize: 13 }}>
               There is no expenses for this site.
             </Typography>
           </Box>

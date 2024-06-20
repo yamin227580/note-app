@@ -14,8 +14,12 @@ const AlertForCreateData = ({
 }: Props) => {
   return (
     <Box>
-      <Dialog open={openForCreate} onClose={() => setOpenForCreate(false)}>
-        <DialogContent sx={{ width: 300 }}>
+      <Dialog
+        open={openForCreate}
+        onClose={() => setOpenForCreate(false)}
+        sx={{ width: 350 }}
+      >
+        <DialogContent>
           <Box
             sx={{
               display: "flex",
@@ -23,7 +27,7 @@ const AlertForCreateData = ({
               flexDirection: "column",
             }}
           >
-            <Typography sx={{ mt: 3, fontSize: 14 }}>
+            <Typography sx={{ mt: 3, fontSize: 13 }}>
               You created {msg} successfully.
             </Typography>
           </Box>

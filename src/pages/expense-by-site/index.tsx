@@ -7,7 +7,6 @@ import {
   Button,
   Dialog,
   DialogContent,
-  DialogTitle,
   FormControl,
   InputLabel,
   ListItemText,
@@ -303,9 +302,12 @@ const ExpenseBySite = () => {
           <AlertForNotExitData open={open} setOpen={setOpen} />
         )}
       </Box>
-      <Dialog open={openForAlert} onClose={() => setOpenForAlert(false)}>
-        <DialogTitle>Alert</DialogTitle>
-        <DialogContent sx={{ width: 300 }}>
+      <Dialog
+        open={openForAlert}
+        onClose={() => setOpenForAlert(false)}
+        sx={{ width: 350 }}
+      >
+        <DialogContent>
           <Box
             sx={{
               display: "flex",
@@ -313,7 +315,9 @@ const ExpenseBySite = () => {
               flexDirection: "column",
             }}
           >
-            <Typography>There is not any project now.</Typography>
+            <Typography sx={{ mt: 3, fontSize: 13 }}>
+              There is not any project now.
+            </Typography>
           </Box>
           <Box sx={{ mt: 3, display: "flex", justifyContent: "flex-end" }}>
             <Button variant="contained" onClick={() => setOpenForAlert(false)}>
