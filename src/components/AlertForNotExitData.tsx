@@ -9,8 +9,8 @@ interface Props {
 const AlertForNotExitData = ({ open, setOpen }: Props) => {
   return (
     <Box>
-      <Dialog open={open} onClose={() => setOpen(false)} sx={{ width: 350 }}>
-        <DialogContent>
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogContent sx={{ width: 280 }}>
           <Box
             sx={{
               display: "flex",

@@ -302,12 +302,8 @@ const ExpenseBySite = () => {
           <AlertForNotExitData open={open} setOpen={setOpen} />
         )}
       </Box>
-      <Dialog
-        open={openForAlert}
-        onClose={() => setOpenForAlert(false)}
-        sx={{ width: 350 }}
-      >
-        <DialogContent>
+      <Dialog open={openForAlert} onClose={() => setOpenForAlert(false)}>
+        <DialogContent sx={{ width: 280 }}>
           <Box
             sx={{
               display: "flex",
